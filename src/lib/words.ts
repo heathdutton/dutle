@@ -121,27 +121,28 @@ function getRandomNumber(size: number){
   return num.join('');
 }
 
-function shuffleArray(array: string[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+// function shuffleArray(array: string[]) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }
 
-function getWord(){
-  const words = [];
-  for(var i=0; i < Math.pow(10, MAX_WORD_LENGTH); i++){
-    const num = i.toString().padStart(MAX_WORD_LENGTH, '0');
-    if(!isRepeatingNumber(num)){
-      words.push(num)
-    }
+// function getWord(){
+//   const words = [];
+//   for(var i=0; i < Math.pow(10, MAX_WORD_LENGTH); i++){
+//     const num = i.toString().padStart(MAX_WORD_LENGTH, '0');
+//     if(!isRepeatingNumber(num)){
+//       words.push(num)
+//     }
 
-  }
+//   }
 
-  shuffleArray(words)
+//   shuffleArray(words)
 
-  return words[0]
-}
+//   return words[0]
+// }
+
 export let { solution, solutionIndex, tomorrow}  = getWordOfDay();
 
 export function setNewSolution() {
