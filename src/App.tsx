@@ -25,6 +25,7 @@ import {
   solution,
   findFirstUnusedReveal,
   unicodeLength,
+  setNewSolution,
 } from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
@@ -240,6 +241,20 @@ function App() {
     }
   }
 
+  const refreshRequested = () => {
+    setNewSolution()
+    setCurrentGuess('')
+    setIsGameWon(false)
+    setIsGameWon(false)
+    setIsInfoModalOpen(false)
+    setIsStatsModalOpen(false)
+    setIsSettingsModalOpen(false)
+    setCurrentRowClass('')
+    setIsGameLost(false)
+    setIsRevealing(false)
+    setGuesses([])
+  }
+
   return (
     <div className="h-screen flex flex-col">
       <Navbar
@@ -279,6 +294,7 @@ function App() {
           isDarkMode={isDarkMode}
           isHighContrastMode={isHighContrastMode}
           numberOfGuessesMade={guesses.length}
+          startNewGame={refreshRequested}
         />
         <SettingsModal
           isOpen={isSettingsModalOpen}

@@ -3,6 +3,7 @@ import {
   CogIcon,
   InformationCircleIcon,
 } from '@heroicons/react/outline'
+import { MAX_WORD_LENGTH } from '../../constants/settings'
 import { GAME_TITLE } from '../../constants/strings'
 
 type Props = {
@@ -19,11 +20,13 @@ export const Navbar = ({
   return (
     <div className="navbar">
       <div className="navbar-content px-5">
-        <InformationCircleIcon
-          className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
-          onClick={() => setIsInfoModalOpen(true)}
-        />
-        <p className="text-xl ml-2.5 font-bold dark:text-white">{GAME_TITLE}</p>
+        <div className="left-icons">
+          <InformationCircleIcon
+            className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
+            onClick={() => setIsInfoModalOpen(true)}
+          />
+        </div>
+        <p className="text-xl ml-2.5 font-bold dark:text-white">{GAME_TITLE} - {MAX_WORD_LENGTH}</p>
         <div className="right-icons">
           <ChartBarIcon
             className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"

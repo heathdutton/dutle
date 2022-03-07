@@ -10,6 +10,7 @@ import {
   GUESS_DISTRIBUTION_TEXT,
   NEW_WORD_TEXT,
   SHARE_TEXT,
+  START_NEW_GAME,
 } from '../../constants/strings'
 
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
   isDarkMode: boolean
   isHighContrastMode: boolean
   numberOfGuessesMade: number
+  startNewGame: () => void
 }
 
 export const StatsModal = ({
@@ -38,6 +40,7 @@ export const StatsModal = ({
   isDarkMode,
   isHighContrastMode,
   numberOfGuessesMade,
+  startNewGame,
 }: Props) => {
   if (gameStats.totalGames <= 0) {
     return (
@@ -65,6 +68,7 @@ export const StatsModal = ({
         numberOfGuessesMade={numberOfGuessesMade}
       />
       {(isGameLost || isGameWon) && (
+        <>
         <div className="mt-5 sm:mt-6 columns-2 dark:text-white">
           <div>
             <h5>{NEW_WORD_TEXT}</h5>
@@ -91,6 +95,19 @@ export const StatsModal = ({
             {SHARE_TEXT}
           </button>
         </div>
+        <div className="flex justify-center mt-5 sm:mt-6 columns-2 dark:text-white">
+           <button
+            type="button"
+            className="mt-2 w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+            onClick={() => {
+              handleClose()
+              startNewGame()
+            }}
+          >
+            {START_NEW_GAME}
+          </button>
+        </div>
+        </>
       )}
     </BaseModal>
   )

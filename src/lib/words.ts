@@ -1,14 +1,25 @@
-import { WORDS } from '../constants/wordlist'
-import { VALID_GUESSES } from '../constants/validGuesses'
 import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
+import { MAX_WORD_LENGTH } from '../constants/settings'
+
+
+const isRepeatingNumber = (guess: string) => {
+  const arr = guess.split("")
+  return new Set(arr).size !== arr.length
+}
+
+const isValidNumber = (num: string) => {
+ 
+  return num.length === MAX_WORD_LENGTH && /^\d+$/.test(num) && !isRepeatingNumber(num)
+}
 
 export const isWordInWordList = (word: string) => {
-  return (
-    WORDS.includes(localeAwareLowerCase(word)) ||
-    VALID_GUESSES.includes(localeAwareLowerCase(word))
-  )
+  return isValidNumber(word)
+  // return (
+  //   WORDS.includes(localeAwareLowerCase(word)) ||
+  //   VALID_GUESSES.includes(localeAwareLowerCase(word))
+  // )
 }
 
 export const isWinningWord = (word: string) => {
@@ -83,10 +94,61 @@ export const getWordOfDay = () => {
   const nextday = (index + 1) * msInDay + epochMs
 
   return {
-    solution: localeAwareUpperCase(WORDS[index % WORDS.length]),
+    solution: getRandomNumber(MAX_WORD_LENGTH), //getWord(), //WORDS[index % WORDS.length],
     solutionIndex: index,
     tomorrow: nextday,
   }
 }
 
-export const { solution, solutionIndex, tomorrow } = getWordOfDay()
+function getRandomNumber(size: number){
+  var newNums = new Set();
+  var num = [];
+
+  while(num.length < size){
+
+    const randomNum = Math.floor(Math.random() * 10);
+
+    
+    if(!newNums.has(randomNum)){
+
+      num.push(randomNum)
+      newNums.add(randomNum)
+      
+    }   
+
+  }
+
+  return num.join('');
+}
+
+function shuffleArray(array: string[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function getWord(){
+  const words = [];
+  for(var i=0; i < Math.pow(10, MAX_WORD_LENGTH); i++){
+    const num = i.toString().padStart(MAX_WORD_LENGTH, '0');
+    if(!isRepeatingNumber(num)){
+      words.push(num)
+    }
+
+  }
+
+  shuffleArray(words)
+
+  return words[0]
+}
+export let { solution, solutionIndex, tomorrow}  = getWordOfDay();
+
+export function setNewSolution() {
+  const newSolution = getWordOfDay()
+  
+  solution = newSolution.solution
+  solutionIndex = newSolution.solutionIndex
+  tomorrow = newSolution.tomorrow
+  
+} 
