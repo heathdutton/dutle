@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-numble/static/css/main.46495ce4.css",
-    "main.js": "/react-numble/static/js/main.fc9bd7d6.js",
+    "main.js": "/react-numble/static/js/main.4875b5e8.js",
     "static/js/787.b3f9d252.chunk.js": "/react-numble/static/js/787.b3f9d252.chunk.js",
     "index.html": "/react-numble/index.html",
     "main.46495ce4.css.map": "/react-numble/static/css/main.46495ce4.css.map",
-    "main.fc9bd7d6.js.map": "/react-numble/static/js/main.fc9bd7d6.js.map",
+    "main.4875b5e8.js.map": "/react-numble/static/js/main.4875b5e8.js.map",
     "787.b3f9d252.chunk.js.map": "/react-numble/static/js/787.b3f9d252.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.46495ce4.css",
-    "static/js/main.fc9bd7d6.js"
+    "static/js/main.4875b5e8.js"
   ]
 }
