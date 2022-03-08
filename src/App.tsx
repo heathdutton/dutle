@@ -262,7 +262,7 @@ function App() {
         setIsStatsModalOpen={setIsStatsModalOpen}
         setIsSettingsModalOpen={setIsSettingsModalOpen}
       />
-      <div className="pt-2 px-1 pb-[50px] md:max-w-7xl w-full mx-auto sm:px-6 lg:px-8 flex flex-col grow">
+      <div className="pt-2 px-1 pb-[60px] md:max-w-7xl w-full mx-auto sm:px-6 lg:px-8 flex flex-col grow">
         <div className="pb-6 grow">
           <Grid
             guesses={guesses}
