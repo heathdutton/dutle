@@ -8,7 +8,7 @@ import {
   WIN_MESSAGES,
   GAME_COPIED_MESSAGE,
   NOT_ENOUGH_LETTERS_MESSAGE,
-  WORD_NOT_FOUND_MESSAGE,
+  INVALID_GUESS_MESSAGE,
   CORRECT_WORD_MESSAGE,
   HARD_MODE_ALERT_MESSAGE,
 } from './constants/strings'
@@ -192,7 +192,7 @@ function App() {
 
     if (!isWordInWordList(currentGuess)) {
       setCurrentRowClass('jiggle')
-      return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
+      return showErrorAlert(INVALID_GUESS_MESSAGE, {
         onClose: clearCurrentRowClass,
       })
     }

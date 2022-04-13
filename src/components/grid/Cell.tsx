@@ -2,6 +2,7 @@ import { CharStatus } from '../../lib/statuses'
 import classnames from 'classnames'
 import { REVEAL_TIME_MS } from '../../constants/settings'
 import { getStoredIsHighContrastMode } from '../../lib/localStorage'
+import { BUTLER_NAME_ENUM } from '../../constants/strings'
 
 type Props = {
   value?: string
@@ -24,7 +25,7 @@ export const Cell = ({
   const isHighContrast = getStoredIsHighContrastMode()
 
   const classes = classnames(
-    'w-14 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-4xl font-bold rounded dark:text-white',
+    'w-52 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-4xl font-bold rounded dark:text-white',
     {
       'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-600':
         !status,
@@ -47,7 +48,7 @@ export const Cell = ({
   return (
     <div className={classes} style={{ animationDelay }}>
       <div className="letter-container" style={{ animationDelay }}>
-        {value}
+        {value ? BUTLER_NAME_ENUM[value] : value}
       </div>
     </div>
   )
