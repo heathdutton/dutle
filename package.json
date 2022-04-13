@@ -64,5 +64,5 @@
   "lint-staged": {
     "src/*.{ts,tsx,js,jsx,css,md}": "prettier --write"
   },
-  "homepage": "https://shawndube.github.io/react-numble"
+  "homepage": "https://LoganCButler.github.io/butle"
 }
