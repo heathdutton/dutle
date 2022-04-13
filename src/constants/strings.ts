@@ -31,11 +31,11 @@ interface ButlerNamesInterface {
   [key: string]: string | undefined
 }
 export const BUTLER_NAME_ENUM: ButlerNamesInterface = {
-  "1" : "Logan",
-  "2": "Sammantha",
-  "3": "Gerrit",
-  "4": "Holly",
-  "5": "Margo",
-  "6": "Cameron",
-  "7": "Cami",
+  '1': 'Logan',
+  '2': 'Sammantha',
+  '3': 'Gerrit',
+  '4': 'Holly',
+  '5': 'Margo',
+  '6': 'Cameron',
+  '7': 'Cami',
 }

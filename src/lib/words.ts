@@ -3,15 +3,17 @@ import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 import { MAX_WORD_LENGTH } from '../constants/settings'
 
-
 const isRepeatingNumber = (guess: string) => {
-  const arr = guess.split("")
+  const arr = guess.split('')
   return new Set(arr).size !== arr.length
 }
 
 const isValidNumber = (num: string) => {
- 
-  return num.length === MAX_WORD_LENGTH && /^\d+$/.test(num) && !isRepeatingNumber(num)
+  return (
+    num.length === MAX_WORD_LENGTH &&
+    /^\d+$/.test(num) &&
+    !isRepeatingNumber(num)
+  )
 }
 
 export const isWordInWordList = (word: string) => {
@@ -100,25 +102,20 @@ export const getWordOfDay = () => {
   }
 }
 
-function getRandomNumber(size: number){
-  var newNums = new Set();
-  var num = [];
+function getRandomNumber(size: number) {
+  var newNums = new Set()
+  var num = []
 
-  while(num.length < size){
+  while (num.length < size) {
+    const randomNum = Math.floor(Math.random() * 6 + 1)
 
-    const randomNum = Math.floor(Math.random() * 6 + 1);
-
-    
-    if(!newNums.has(randomNum)){
-
+    if (!newNums.has(randomNum)) {
       num.push(randomNum)
       newNums.add(randomNum)
-      
-    }   
-
+    }
   }
 
-  return num.join('');
+  return num.join('')
 }
 
 // function shuffleArray(array: string[]) {
@@ -143,13 +140,12 @@ function getRandomNumber(size: number){
 //   return words[0]
 // }
 
-export let { solution, solutionIndex, tomorrow}  = getWordOfDay();
+export let { solution, solutionIndex, tomorrow } = getWordOfDay()
 
 export function setNewSolution() {
   const newSolution = getWordOfDay()
-  
+
   solution = newSolution.solution
   solutionIndex = newSolution.solutionIndex
   tomorrow = newSolution.tomorrow
-  
-} 
+}

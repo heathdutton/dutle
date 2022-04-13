@@ -11,8 +11,8 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess the number in 6 tries. After each guess, the color of the tiles will
-        change to show how close your guess was to the number.
+        Guess the number in 6 tries. After each guess, the color of the tiles
+        will change to show how close your guess was to the number.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -74,8 +74,8 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       )}
 
       <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
-        This is fork of an open source version of the word guessing game we all know and
-        love -{' '}
+        This is fork of an open source version of the word guessing game we all
+        know and love -{' '}
         <a
           href="https://github.com/cwackerfuss/react-wordle"
           className="underline font-bold"
