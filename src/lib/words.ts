@@ -106,7 +106,7 @@ function getRandomNumber(size: number){
 
   while(num.length < size){
 
-    const randomNum = Math.floor(Math.random() * 10);
+    const randomNum = Math.floor(Math.random() * 6 + 1);
 
     
     if(!newNums.has(randomNum)){
