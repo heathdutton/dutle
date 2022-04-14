@@ -103,43 +103,45 @@ export const getWordOfDay = () => {
 }
 
 function getTodaysTopFive() {
-  const unshuffled = ["2", "3", "4", "5", "6", "7"];
+  const unshuffled = ['2', '3', '4', '5', '6', '7']
   const epochMs = new Date(2022, 0).valueOf()
   // let shuffled = unshuffled
   // .map(value => ({ value, sort: Math.random() }))
   // .sort((a, b) => a.sort - b.sort)
   // .map(({ value }) => value)
-  let shuffled = shuffle(unshuffled, epochMs);
+  let shuffled = shuffle(unshuffled, epochMs)
 
   // add logan to the begining
-  shuffled.unshift("1");
+  shuffled.unshift('1')
 
   // take top 5
-  return shuffled.slice(0, 5).join('');
+  return shuffled.slice(0, 5).join('')
 }
 
-function shuffle(array: string[], seed: number) {                // <-- ADDED ARGUMENT
-  var m = array.length, t, i;
+function shuffle(array: string[], seed: number) {
+  // <-- ADDED ARGUMENT
+  var m = array.length,
+    t,
+    i
 
   // While there remain elements to shuffle…
   while (m) {
-
     // Pick a remaining element…
-    i = Math.floor(random(seed) * m--);        // <-- MODIFIED LINE
+    i = Math.floor(random(seed) * m--) // <-- MODIFIED LINE
 
     // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-    ++seed                                     // <-- ADDED LINE
+    t = array[m]
+    array[m] = array[i]
+    array[i] = t
+    ++seed // <-- ADDED LINE
   }
 
-  return array;
+  return array
 }
 
 function random(seed: number) {
-  var x = Math.sin(seed++) * 10000; 
-  return x - Math.floor(x);
+  var x = Math.sin(seed++) * 10000
+  return x - Math.floor(x)
 }
 
 function getRandomNumber(size: number) {
@@ -147,8 +149,8 @@ function getRandomNumber(size: number) {
   var num = []
 
   // add logan to be in the top slot
-  newNums.add(1);
-  num.push(1);
+  newNums.add(1)
+  num.push(1)
 
   while (num.length < size) {
     const randomNum = Math.floor(Math.random() * 6 + 1)
