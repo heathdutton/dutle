@@ -96,49 +96,53 @@ export const getWordOfDay = () => {
   const nextday = (index + 1) * msInDay + epochMs
 
   return {
-    solution: getRandomNumber(MAX_WORD_LENGTH), //getWord(), //WORDS[index % WORDS.length],
+    solution: getTodaysTopFive(),
     solutionIndex: index,
     tomorrow: nextday,
   }
 }
 
-function getRandomNumber(size: number) {
-  var newNums = new Set()
-  var num = []
+function getTodaysTopFive() {
+  const unshuffled = ['2', '3', '4', '5', '6', '7']
+  const epochMs = new Date(2022, 0).valueOf()
+  // let shuffled = unshuffled
+  // .map(value => ({ value, sort: Math.random() }))
+  // .sort((a, b) => a.sort - b.sort)
+  // .map(({ value }) => value)
+  let shuffled = shuffle(unshuffled, epochMs)
 
-  while (num.length < size) {
-    const randomNum = Math.floor(Math.random() * 6 + 1)
+  // add logan to the begining
+  shuffled.unshift('1')
 
-    if (!newNums.has(randomNum)) {
-      num.push(randomNum)
-      newNums.add(randomNum)
-    }
-  }
-
-  return num.join('')
+  // take top 5
+  return shuffled.slice(0, 5).join('')
 }
 
-// function shuffleArray(array: string[]) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//     }
-// }
+function shuffle(array: string[], seed: number) {
+  // <-- ADDED ARGUMENT
+  var m = array.length,
+    t,
+    i
 
-// function getWord(){
-//   const words = [];
-//   for(var i=0; i < Math.pow(10, MAX_WORD_LENGTH); i++){
-//     const num = i.toString().padStart(MAX_WORD_LENGTH, '0');
-//     if(!isRepeatingNumber(num)){
-//       words.push(num)
-//     }
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(random(seed) * m--) // <-- MODIFIED LINE
 
-//   }
+    // And swap it with the current element.
+    t = array[m]
+    array[m] = array[i]
+    array[i] = t
+    ++seed // <-- ADDED LINE
+  }
 
-//   shuffleArray(words)
+  return array
+}
 
-//   return words[0]
-// }
+function random(seed: number) {
+  var x = Math.sin(seed++) * 10000
+  return x - Math.floor(x)
+}
 
 export let { solution, solutionIndex, tomorrow } = getWordOfDay()
 
