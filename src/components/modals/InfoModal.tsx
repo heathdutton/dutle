@@ -11,7 +11,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess the number in 6 tries. After each guess, the color of the tiles
+        Guess Ma's top 5 in 6 tries. After each guess, the color of the tiles
         will change to show how close your guess was to the number.
       </p>
 
@@ -28,7 +28,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="5" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The digit 1 is in the number and in the correct spot.
+        Logan is in the top 5 and in the correct spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -44,7 +44,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="2" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The digit 4 is in the number but in the wrong spot.
+        Holly is in the top 5 but in the wrong spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -55,7 +55,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="1" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The digit 2 is not in the number in any spot.
+        Sammantha is not in the top 5 in any spot.
       </p>
 
       {!CAN_HAVE_DUPLICATE_DIGITS && (
@@ -68,13 +68,13 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
             <Cell value="7" />
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            Numbers CANNOT have a digit more than one time. No duplicate digits.
+            Names CANNOT have a place more than one time. No duplicate places.
           </p>
         </>
       )}
 
       <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
-        This is fork of an open source version of the word guessing game we all
+        This is fork by Logan Butler of an open source version of the word guessing game we all
         know and love -{' '}
         <a
           href="https://github.com/cwackerfuss/react-wordle"
