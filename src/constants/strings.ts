@@ -25,7 +25,6 @@ export const TOTAL_TRIES_TEXT = 'Total tries'
 export const SUCCESS_RATE_TEXT = 'Success rate'
 export const CURRENT_STREAK_TEXT = 'Current streak'
 export const BEST_STREAK_TEXT = 'Best streak'
-export const START_NEW_GAME = 'Start New Game'
 
 interface ButlerNamesInterface {
   [key: string]: string | undefined
