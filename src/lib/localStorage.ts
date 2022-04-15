@@ -7,12 +7,22 @@ type StoredGameState = {
 }
 
 export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
-  localStorage.setItem(gameStateKey, JSON.stringify(gameState))
+  const index = getGameIndex()
+
+  const gameStateWithDate = { ...gameState, gameIndex: index }
+  localStorage.setItem(gameStateKey, JSON.stringify(gameStateWithDate))
 }
 
 export const loadGameStateFromLocalStorage = () => {
+  const index = getGameIndex()
+
   const state = localStorage.getItem(gameStateKey)
-  return state ? (JSON.parse(state) as StoredGameState) : null
+
+  if (state && state.includes(index.toString())) {
+    const gameState = JSON.parse(state) as StoredGameState
+    return gameState
+  }
+  return null
 }
 
 const gameStatKey = 'gameStats'
@@ -46,4 +56,11 @@ export const setStoredIsHighContrastMode = (isHighContrast: boolean) => {
 export const getStoredIsHighContrastMode = () => {
   const highContrast = localStorage.getItem(highContrastKey)
   return highContrast === '1'
+}
+function getGameIndex() {
+  const epochMs = new Date(2022, 0).valueOf()
+  const now = Date.now()
+  const msInDay = 86400000
+  const index = Math.floor((now - epochMs) / msInDay)
+  return index
 }

@@ -1,5 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# commenting out the following line to disable this hook
-# npx lint-staged
+npx lint-staged
