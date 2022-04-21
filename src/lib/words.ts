@@ -96,26 +96,36 @@ export const getWordOfDay = () => {
   const nextday = (index + 1) * msInDay + epochMs
 
   return {
-    solution: getTodaysTopFive(),
+    solution: getTodaysTopFive(index),
     solutionIndex: index,
     tomorrow: nextday,
   }
 }
 
-function getTodaysTopFive() {
-  const unshuffled = ['2', '3', '4', '5', '6', '7']
-  const epochMs = new Date(2022, 0).valueOf()
-  // let shuffled = unshuffled
-  // .map(value => ({ value, sort: Math.random() }))
-  // .sort((a, b) => a.sort - b.sort)
-  // .map(({ value }) => value)
-  let shuffled = shuffle(unshuffled, epochMs)
+function getTodaysTopFive(gameIndex: number) {
+  const unshuffled = ['1', '2', '3', '4', '5', '6', '7']
+  let shuffled = shuffle(unshuffled, gameIndex)
 
-  // add logan to the begining
-  shuffled.unshift('1')
+  const weigtedTopFive: string[] = selectWeightedFive(shuffled)
 
-  // take top 5
-  return shuffled.slice(0, 5).join('')
+  return weigtedTopFive.join('')
+}
+
+function selectWeightedFive(shuffled: string[]) {
+  let potentialTopFive = shuffled.slice(0, 5)
+  const alternates: string[] = shuffled.slice(6, shuffled.length)
+
+  const weigtedTopFive: string[] = []
+  const MARGO_ENUM_VALUE = '5'
+  potentialTopFive.forEach((person) => {
+    // skip margo if we are filling top 3 and use an alternate
+    if (person === MARGO_ENUM_VALUE && weigtedTopFive.length < 3) {
+      weigtedTopFive.push(alternates.pop() as string)
+    } else {
+      weigtedTopFive.push(person)
+    }
+  })
+  return weigtedTopFive
 }
 
 function shuffle(array: string[], seed: number) {
