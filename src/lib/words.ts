@@ -115,17 +115,17 @@ function selectWeightedFive(shuffled: string[]) {
   let potentialTopFive = shuffled.slice(0, 5)
   const alternates: string[] = shuffled.slice(6, shuffled.length)
 
-  const weigtedTopFive: string[] = [];
-  const MARGO_ENUM_VALUE = '5';
-  potentialTopFive.forEach(person => {
+  const weigtedTopFive: string[] = []
+  const MARGO_ENUM_VALUE = '5'
+  potentialTopFive.forEach((person) => {
     // skip margo if we are filling top 3 and use an alternate
     if (person === MARGO_ENUM_VALUE && weigtedTopFive.length < 3) {
-      weigtedTopFive.push(alternates.pop() as string);
+      weigtedTopFive.push(alternates.pop() as string)
     } else {
-      weigtedTopFive.push(person);
+      weigtedTopFive.push(person)
     }
   })
-  return weigtedTopFive;
+  return weigtedTopFive
 }
 
 function shuffle(array: string[], seed: number) {
