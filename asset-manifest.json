@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://dutle.lol/static/css/main.aaa57d85.css",
-    "main.js": "https://dutle.lol/static/js/main.72de53cc.js",
+    "main.js": "https://dutle.lol/static/js/main.f3a6a57e.js",
     "static/js/787.b3f9d252.chunk.js": "https://dutle.lol/static/js/787.b3f9d252.chunk.js",
     "index.html": "https://dutle.lol/index.html",
     "main.aaa57d85.css.map": "https://dutle.lol/static/css/main.aaa57d85.css.map",
-    "main.72de53cc.js.map": "https://dutle.lol/static/js/main.72de53cc.js.map",
+    "main.f3a6a57e.js.map": "https://dutle.lol/static/js/main.f3a6a57e.js.map",
     "787.b3f9d252.chunk.js.map": "https://dutle.lol/static/js/787.b3f9d252.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aaa57d85.css",
-    "static/js/main.72de53cc.js"
+    "static/js/main.f3a6a57e.js"
   ]
 }
