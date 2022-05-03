@@ -27,7 +27,7 @@ export const Navbar = ({
           />
         </div>
         <p className="text-xl ml-2.5 font-bold dark:text-white">
-          {GAME_TITLE} • top {MAX_WORD_LENGTH} kids of the day
+          {GAME_TITLE} • top {MAX_WORD_LENGTH} of the day
         </p>
         <div className="right-icons">
           <ChartBarIcon
