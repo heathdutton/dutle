@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import classnames from 'classnames'
 import { CharStatus } from '../../lib/statuses'
 import { MAX_WORD_LENGTH, REVEAL_TIME_MS } from '../../constants/settings'
-import { BUTLER_NAME_ENUM } from '../../constants/strings'
+import { NAME_ENUM } from '../../constants/strings'
 import { getStoredIsHighContrastMode } from '../../lib/localStorage'
 
 type Props = {
@@ -56,7 +56,7 @@ export const Key = ({
 
   return (
     <button style={styles} className={classes} onClick={handleClick}>
-      {children || BUTLER_NAME_ENUM[value] || value}
+      {children || NAME_ENUM[value] || value}
     </button>
   )
 }

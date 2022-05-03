@@ -2,7 +2,7 @@ import { CharStatus } from '../../lib/statuses'
 import classnames from 'classnames'
 import { REVEAL_TIME_MS } from '../../constants/settings'
 import { getStoredIsHighContrastMode } from '../../lib/localStorage'
-import { BUTLER_NAME_ENUM } from '../../constants/strings'
+import { NAME_ENUM } from '../../constants/strings'
 
 type Props = {
   value?: string
@@ -48,7 +48,7 @@ export const Cell = ({
   return (
     <div className={classes} style={{ animationDelay }}>
       <div className="letter-container" style={{ animationDelay }}>
-        {value ? BUTLER_NAME_ENUM[value] : value}
+        {value ? NAME_ENUM[value] : value}
       </div>
     </div>
   )

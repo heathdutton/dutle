@@ -2,7 +2,7 @@ export const GAME_TITLE = process.env.REACT_APP_GAME_NAME!
 
 export const WIN_MESSAGES = ['Great Job!', 'Awesome', 'Well done!']
 export const GAME_COPIED_MESSAGE = 'Game copied to clipboard'
-export const NOT_ENOUGH_LETTERS_MESSAGE = 'Not enough digits'
+export const NOT_ENOUGH_LETTERS_MESSAGE = 'Not enough kids'
 export const INVALID_GUESS_MESSAGE = 'Check your guesses'
 export const HARD_MODE_ALERT_MESSAGE =
   'Hard Mode can only be enabled at the start!'
@@ -10,13 +10,13 @@ export const HARD_MODE_DESCRIPTION =
   'Any revealed hints must be used in subsequent guesses'
 export const HIGH_CONTRAST_MODE_DESCRIPTION = 'For improved color vision'
 export const CORRECT_WORD_MESSAGE = (solution: string) =>
-  `The number was ${solution}`
+  `The answer was ${solution}`
 export const WRONG_SPOT_MESSAGE = (guess: string, position: number) =>
   `Must use ${guess} in position ${position}`
 export const NOT_CONTAINED_MESSAGE = (letter: string) =>
   `Guess must contain ${letter}`
-export const ENTER_TEXT = 'Enter'
-export const DELETE_TEXT = 'Delete'
+export const ENTER_TEXT = 'ENTER'
+export const DELETE_TEXT = '⌫'
 export const STATISTICS_TITLE = 'Statistics'
 export const GUESS_DISTRIBUTION_TEXT = 'Guess Distribution'
 export const NEW_WORD_TEXT = 'Next Top Five in'
@@ -26,15 +26,20 @@ export const SUCCESS_RATE_TEXT = 'Success rate'
 export const CURRENT_STREAK_TEXT = 'Current streak'
 export const BEST_STREAK_TEXT = 'Best streak'
 
-interface ButlerNamesInterface {
+interface NamesInterface {
   [key: string]: string | undefined
 }
-export const BUTLER_NAME_ENUM: ButlerNamesInterface = {
-  '1': 'Logan',
-  '2': 'Sammantha',
-  '3': 'Gerrit',
-  '4': 'Holly',
-  '5': 'Margo',
-  '6': 'Cameron',
-  '7': 'Cami',
+export const NAME_ENUM: NamesInterface = {
+  h: 'Heath',
+  a: 'Anna',
+  p: 'Paul',
+  b: 'Bethany',
+  '1': 'Chaz',
+  c: 'Charlie',
+  l: 'Lilli',
+  j: 'Jack',
+  e: 'Emmy Lou',
+  r: 'Riley',
+  m: 'Mayson',
+  '0': 'Emily',
 }

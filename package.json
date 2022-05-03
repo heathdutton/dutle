@@ -64,5 +64,5 @@
   "lint-staged": {
     "src/*.{ts,tsx,js,jsx,css,md}": "prettier --write"
   },
-  "homepage": "https://LoganCButler.github.io/butle"
+  "homepage": "https://dutle.lol"
 }

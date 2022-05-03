@@ -11,8 +11,9 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess Ma's top 5 in 6 tries. After each guess, the color of the tiles
-        will change to show how close your guess was to the number.
+        Guess Momma Dutton's top 5 in 6 tries!
+        <br /> After each guess, the color of the tiles will change to show how
+        close your guess was.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -22,65 +23,65 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
           value="1"
           status="correct"
         />
-        <Cell value="2" />
-        <Cell value="3" />
-        <Cell value="4" />
-        <Cell value="5" />
+        <Cell value="e" />
+        <Cell value="a" />
+        <Cell value="l" />
+        <Cell value="p" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Logan is in the top 5 and in the correct spot.
+        Chaz is in the top 5 and in the correct spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="6" />
-        <Cell value="5" />
+        <Cell value="c" />
+        <Cell value="h" />
         <Cell
           isRevealing={true}
           isCompleted={true}
-          value="4"
+          value="r"
           status="present"
         />
-        <Cell value="3" />
-        <Cell value="2" />
+        <Cell value="b" />
+        <Cell value="e" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Holly is in the top 5 but in the wrong spot.
+        Riley is in the top 5 but in the wrong spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="5" />
-        <Cell value="4" />
-        <Cell value="3" />
-        <Cell isRevealing={true} isCompleted={true} value="2" status="absent" />
-        <Cell value="1" />
+        <Cell value="0" />
+        <Cell value="m" />
+        <Cell value="j" />
+        <Cell isRevealing={true} isCompleted={true} value="b" status="absent" />
+        <Cell value="c" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Sammantha is not in the top 5 in any spot.
+        Bethany is not in the top 5 in any spot.
       </p>
 
       {!CAN_HAVE_DUPLICATE_DIGITS && (
         <>
           <div className="flex justify-center mb-1 mt-4">
-            <Cell value="7" />
-            <Cell value="7" />
-            <Cell value="7" />
-            <Cell value="7" />
-            <Cell value="7" />
+            <Cell value="l" />
+            <Cell value="l" />
+            <Cell value="l" />
+            <Cell value="l" />
+            <Cell value="l" />
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            Names CANNOT have a place more than one time. No duplicate places.
+            Names CANNOT have more than one place... Lilli.
           </p>
         </>
       )}
 
-      <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
-        This is fork by Logan Butler of an open source version of the word
-        guessing game we all know and love -{' '}
+      <p className="mt-6 italic text-gray-500 dark:text-gray-300 text-xs">
+        This is fork by Heath Dutton of a fork by Logan Butler of an open source
+        version of the word guessing game we all know and love -{' '}
         <a
           href="https://github.com/cwackerfuss/react-wordle"
           className="underline font-bold"
         >
-          check out the code here
+          github
         </a>{' '}
       </p>
     </BaseModal>

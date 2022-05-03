@@ -1,27 +1,24 @@
-import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
+import {
+  WRONG_SPOT_MESSAGE,
+  NOT_CONTAINED_MESSAGE,
+  NAME_ENUM,
+} from '../constants/strings'
 import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 import { MAX_WORD_LENGTH } from '../constants/settings'
 
-const isRepeatingNumber = (guess: string) => {
+const isRepeating = (guess: string) => {
   const arr = guess.split('')
   return new Set(arr).size !== arr.length
 }
 
-const isValidNumber = (num: string) => {
-  return (
-    num.length === MAX_WORD_LENGTH &&
-    /^\d+$/.test(num) &&
-    !isRepeatingNumber(num)
-  )
-}
-
 export const isWordInWordList = (word: string) => {
-  return isValidNumber(word)
-  // return (
-  //   WORDS.includes(localeAwareLowerCase(word)) ||
-  //   VALID_GUESSES.includes(localeAwareLowerCase(word))
-  // )
+  for (let i = 0; i < word.length; i++) {
+    if (typeof NAME_ENUM[word[i]] == 'undefined') {
+      return false
+    }
+  }
+  return word.length === MAX_WORD_LENGTH && !isRepeating(word)
 }
 
 export const isWinningWord = (word: string) => {
@@ -88,8 +85,7 @@ export const localeAwareUpperCase = (text: string) => {
 }
 
 export const getWordOfDay = () => {
-  // January 1, 2022 Game Epoch
-  const epochMs = new Date(2022, 0).valueOf()
+  const epochMs = new Date(2022, 5, 3).valueOf()
   const now = Date.now()
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
@@ -103,7 +99,20 @@ export const getWordOfDay = () => {
 }
 
 function getTodaysTopFive(gameIndex: number) {
-  const unshuffled = ['1', '2', '3', '4', '5', '6', '7']
+  const unshuffled = [
+    'h',
+    'a',
+    'p',
+    'b',
+    '1',
+    'c',
+    'l',
+    'j',
+    'e',
+    'r',
+    'm',
+    '0',
+  ]
   let shuffled = shuffle(unshuffled, gameIndex)
 
   const weigtedTopFive: string[] = selectWeightedFive(shuffled)
@@ -113,13 +122,11 @@ function getTodaysTopFive(gameIndex: number) {
 
 function selectWeightedFive(shuffled: string[]) {
   let potentialTopFive = shuffled.slice(0, 5)
-  const alternates: string[] = shuffled.slice(6, shuffled.length)
+  const alternates: string[] = shuffled.slice(5, shuffled.length - 1)
 
   const weigtedTopFive: string[] = []
-  const MARGO_ENUM_VALUE = '5'
   potentialTopFive.forEach((person) => {
-    // skip margo if we are filling top 3 and use an alternate
-    if (person === MARGO_ENUM_VALUE && weigtedTopFive.length < 3) {
+    if (person === '0' && weigtedTopFive.length < 5) {
       weigtedTopFive.push(alternates.pop() as string)
     } else {
       weigtedTopFive.push(person)
