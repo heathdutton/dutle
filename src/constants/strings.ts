@@ -39,7 +39,7 @@ export const NAME_ENUM: NamesInterface = {
   l: 'Lilli',
   j: 'Jack',
   e: 'Emmy Lou',
-  r: 'Riley',
+  r: 'Rylie',
   m: 'Mayson',
   '0': 'Emily',
 }
